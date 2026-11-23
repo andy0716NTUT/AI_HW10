@@ -6,7 +6,13 @@
 
 ## 成果與網址
 
-公開網址：尚未部署；目前只提供本機檔案，不能當成公開 URL。
+Wiki：https://andy0716ntut.github.io/AI_HW10/
+
+簡報：https://andy0716ntut.github.io/AI_HW10/slides.html
+
+Graph：https://andy0716ntut.github.io/AI_HW10/workflow.html
+
+公開站另已實測 78/78 項瀏覽器檢查（不含本機 file:// 兩項）；證據：evidence/public/report.json。
 
 本機展示：`index.html`（Wiki）、`slides.html`（10 頁簡報）、`workflow.html`（Graph、實跑與反思）。原始資料：`wiki.json`、`sources/`；逐頁查詢：`retrieval_log.json`；23 個內容區塊的欄位與來源引用：`slides_data.json`。
 

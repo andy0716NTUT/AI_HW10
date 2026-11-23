@@ -13,8 +13,8 @@ def package():
     for name in ('sources','evidence'):
         shutil.copytree(ROOT/name,dest/name,dirs_exist_ok=True,ignore=shutil.ignore_patterns('*.b64'))
     result=validate_html(dest)
-    entries=[{'path':str(p.relative_to(dest)).replace('\\','/'),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(dest.rglob('*')) if p.is_file() and p.name!='package_manifest.json']
-    write_json(dest/'package_manifest.json',{'created_at':timestamp(),'files':entries,'validation':result,'deployment_status':'packaged; not evidence of publication'})
+    entries=[{'path':str(p.relative_to(dest)).replace('\\','/'),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(dest.rglob('*')) if p.is_file() and p.name not in ('package_manifest.json','.nojekyll')]
+    write_json(dest/'package_manifest.json',{'created_at':timestamp(),'files':entries,'hosting_markers':['.nojekyll'],'validation':result,'deployment_status':'packaged; not evidence of publication'})
     with zipfile.ZipFile(ROOT/'site-deploy.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(dest.rglob('*')):
             if p.is_file(): z.write(p,p.relative_to(dest).as_posix())

@@ -14,3 +14,5 @@
 - 2026-11-23T23:17:19.100110+08:00 — Phase 4 PASS：最新整合 run 2026-11-23T231153879896+0800，12 事件、23 內容區塊、validate_claims 注入失敗 1 次→retrieve→draft→恢復；--browser 真實 gate 80/80，14 unittest 再通過。Phase 5：使用者提供學號姓名與指定空 repo AI_HW10；已確認 public/push/admin，初始化 README，Pages Source 已在登入中的 Chrome 設為 GitHub Actions。
 
 - 2026-11-23T23:31:48.659349+08:00 — Phase 5 發布進行：完整原始碼 commit 114beda1873a3fbedf765febd4cd0ba2c54bc623 已推送；GitHub Actions run 45205185575 completed/success。大型 PNG create_blob 傳輸停滯後取消；Chrome fileChooser.setFiles 因擴充功能缺 file URL 權限失敗，原生 Chrome accessibility state unavailable，未改權限。改用可逆 .png.b64 封裝，32 張已存 Git tree，materialize_images.py 逐張驗 SHA-256 並無損還原，package 前自動執行。
+
+- 2026-11-23T23:34:08.762302+08:00 — Phase 5 PASS：Actions run 45206298693 build/deploy success；公開站 https://andy0716ntut.github.io/AI_HW10/ Chrome 78/78（不含本機 file:// 兩項），console/page error/failed request = 0；HTTP 74 個內容檔 SHA-256 全符。首次一併查 .nojekyll hosting marker 得 404，保留原始 74/75 報告，後續 manifest 排除此非公開內容標記。繳交標題已依使用者提供填入北科大 112590011 資工四 林維信。

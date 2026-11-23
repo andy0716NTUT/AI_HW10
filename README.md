@@ -6,7 +6,13 @@
 
 直接雙擊 `index.html`、`slides.html`、`workflow.html`；不需 CDN 或後端。簡報支援前後按鈕、左右鍵、Home/End、F 全螢幕及 `#slide-7` 直達頁面。手機可捲動，引用可點回 Wiki 與原始資料。
 
-公開網址：尚未部署；目前只提供本機檔案，不能當成公開 URL。
+Wiki：https://andy0716ntut.github.io/AI_HW10/
+
+簡報：https://andy0716ntut.github.io/AI_HW10/slides.html
+
+Graph：https://andy0716ntut.github.io/AI_HW10/workflow.html
+
+公開站另已實測 78/78 項瀏覽器檢查（不含本機 file:// 兩項）；證據：evidence/public/report.json。
 
 ## 重建與驗證
 

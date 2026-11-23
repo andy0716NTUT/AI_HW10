@@ -14,6 +14,8 @@ def main():
     deploy=read_json(P/'deployment.json') if (P/'deployment.json').exists() else {'status':'尚未部署','repository':'https://github.com/andy0716NTUT/AI_HW10','reason':'等待推送、設定 Pages 及公開網址實測'}
     write_json(P/'deployment.json',deploy)
     live=deploy.get('status')=='verified' and deploy.get('public_url')
+    public=read_json(P/'evidence/public/report.json') if (P/'evidence/public/report.json').exists() else None
+    public_note=f"公開站另已實測 {sum(c['passed'] for c in public['checks'])}/{len(public['checks'])} 項瀏覽器檢查（不含本機 file:// 兩項）；證據：evidence/public/report.json。" if live and public and public['passed'] else ''
     base=deploy['public_url'].rstrip('/')+'/' if live else ''
     urls=f"Wiki：{base}\n\n簡報：{base}slides.html\n\nGraph：{base}workflow.html" if live else '公開網址：尚未部署；目前只提供本機檔案，不能當成公開 URL。'
     title=' '.join(meta[k] for k in ('school','student_id','department_year','name','topic'))
@@ -27,6 +29,8 @@ def main():
 直接雙擊 `index.html`、`slides.html`、`workflow.html`；不需 CDN 或後端。簡報支援前後按鈕、左右鍵、Home/End、F 全螢幕及 `#slide-7` 直達頁面。手機可捲動，引用可點回 Wiki 與原始資料。
 
 {urls}
+
+{public_note}
 
 ## 重建與驗證
 
@@ -125,6 +129,8 @@ python tests/test_browser.py
 
 {urls}
 
+{public_note}
+
 本機展示：`index.html`（Wiki）、`slides.html`（10 頁簡報）、`workflow.html`（Graph、實跑與反思）。原始資料：`wiki.json`、`sources/`；逐頁查詢：`retrieval_log.json`；{claims} 個內容區塊的欄位與來源引用：`slides_data.json`。
 
 ## Loop／Graph 實作
@@ -160,6 +166,8 @@ Repository：[andy0716NTUT/AI_HW10](https://github.com/andy0716NTUT/AI_HW10)，�
 狀態：**{'已部署且公開網址已驗證' if live else '尚未部署'}**。
 
 {urls}
+
+{public_note}
 
 機器紀錄：`deployment.json`。只有成功收到公開站 HTTP 與瀏覽器驗證後才標記 verified；推送 commit 或 Actions 成功本身不等於本機已實際開過公開網址。
 

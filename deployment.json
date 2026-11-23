@@ -1,8 +1,14 @@
 {
-  "status": "pending",
-  "checked_at": "2026-11-23T23:17:19.100285+08:00",
+  "status": "verified",
+  "checked_at": "2026-11-23T23:34:08.761308+08:00",
   "repository": "https://github.com/andy0716NTUT/AI_HW10",
-  "initial_commit": "2787c01a1d207a40252d62f183757b083ef2a9fb",
-  "pages_source": "GitHub Actions",
-  "reason": "已設定 Pages，等待完整成果推送、Actions 與公開網址實測"
+  "public_url": "https://andy0716ntut.github.io/AI_HW10/",
+  "deployed_commit": "372e7ea00d8c010285c709c2499716f3564d4a5a",
+  "actions_run": "https://github.com/andy0716NTUT/AI_HW10/actions/runs/45206298693",
+  "browser_checks": 78,
+  "browser_passed": true,
+  "http_files_passed": 74,
+  "notes": "75 HTTP checks: 74 required files passed; hosting-only .nojekyll marker returned 404. Marker is not public content and removed from subsequent HTTP manifest; raw failure retained.",
+  "browser_evidence": "evidence/public/report.json",
+  "http_evidence": "evidence/public-http.json"
 }

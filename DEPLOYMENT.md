@@ -2,9 +2,15 @@
 
 Repository：[andy0716NTUT/AI_HW10](https://github.com/andy0716NTUT/AI_HW10)，由使用者本次提供。已查 GitHub metadata：public、push/admin 可用；首次讀 contents 回覆「repository is empty」，沒有覆寫其他專案。
 
-狀態：**尚未部署**。
+狀態：**已部署且公開網址已驗證**。
 
-公開網址：尚未部署；目前只提供本機檔案，不能當成公開 URL。
+Wiki：https://andy0716ntut.github.io/AI_HW10/
+
+簡報：https://andy0716ntut.github.io/AI_HW10/slides.html
+
+Graph：https://andy0716ntut.github.io/AI_HW10/workflow.html
+
+公開站另已實測 78/78 項瀏覽器檢查（不含本機 file:// 兩項）；證據：evidence/public/report.json。
 
 機器紀錄：`deployment.json`。只有成功收到公開站 HTTP 與瀏覽器驗證後才標記 verified；推送 commit 或 Actions 成功本身不等於本機已實際開過公開網址。
 
