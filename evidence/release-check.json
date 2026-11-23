@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-23T23:24:34.264250+08:00",
+  "checked_at": "2026-11-23T23:31:49.076628+08:00",
   "schema": {
     "sources": 5,
     "entries": 6,
@@ -31,7 +31,7 @@
   },
   "submission_fields": "user-confirmed and filled",
   "credential_scan": {
-    "text_files_checked": 65,
+    "text_files_checked": 68,
     "matches": [],
     "scope": "common API token/private key patterns, not exhaustive"
   },

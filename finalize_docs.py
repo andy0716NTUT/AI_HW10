@@ -60,6 +60,8 @@ python tests/test_browser.py
 
 來源：OpenAI、Anthropic、LangChain/LangGraph、Microsoft Learn、Google Cloud。詳見 `INGEST_LOG.md` 與 `sources/S01–S05.md`；每篇有摘要、三個可回溯要點、章節、取得時間、方法、HTTP 狀態與內容雜湊。`python audit_sources.py` 會重新連線檢查並更新 acquisition.json；不會自動改寫已核對摘要。`prepare_sources.py` 是從 original/ 重建本次編輯遷移的輔助程式，會覆寫整理檔，日常重建請用 workflow.py。
 
+大型 PNG 的連接工具傳輸曾停滯，瀏覽器上傳也受擴充功能檔案權限限制；repo 另以 `.png.b64` 保留原始圖片的可逆文字封裝與 SHA-256。執行 `python materialize_images.py` 可核對並還原全部 PNG；package_site.py 在發布前自動還原，公開站使用真正 PNG，沒有改圖或重製證據。
+
 本作有真實 Python 自動流程，但執行器是 deterministic 檢索／規則組合，沒有呼叫 LLM API、沒有執行 LangGraph 套件，也沒有第三方 LLM Wiki 平台上傳紀錄。HTTP 與 schema 檢查不證明語義正確，來源正文由本次 Codex 閱讀核對，並非宣稱另有人類複核。
 
 ## 已實測與部署

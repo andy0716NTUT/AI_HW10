@@ -12,3 +12,5 @@
 - 2026-11-23T23:12:09.747122+08:00 — 流程 2026-11-23T231153879896+0800：PASS；12 個節點事件；重試 {'validate_claims': 1}；本機匯出完成（不代表公開部署）。
 
 - 2026-11-23T23:17:19.100110+08:00 — Phase 4 PASS：最新整合 run 2026-11-23T231153879896+0800，12 事件、23 內容區塊、validate_claims 注入失敗 1 次→retrieve→draft→恢復；--browser 真實 gate 80/80，14 unittest 再通過。Phase 5：使用者提供學號姓名與指定空 repo AI_HW10；已確認 public/push/admin，初始化 README，Pages Source 已在登入中的 Chrome 設為 GitHub Actions。
+
+- 2026-11-23T23:31:48.659349+08:00 — Phase 5 發布進行：完整原始碼 commit 114beda1873a3fbedf765febd4cd0ba2c54bc623 已推送；GitHub Actions run 45205185575 completed/success。大型 PNG create_blob 傳輸停滯後取消；Chrome fileChooser.setFiles 因擴充功能缺 file URL 權限失敗，原生 Chrome accessibility state unavailable，未改權限。改用可逆 .png.b64 封裝，32 張已存 Git tree，materialize_images.py 逐張驗 SHA-256 並無損還原，package 前自動執行。

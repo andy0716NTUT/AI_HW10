@@ -2,10 +2,10 @@
 import argparse, functools, http.server, json, pathlib, sys, threading, time
 from project_utils import ROOT, timestamp, write_json
 sys.path.insert(0,str(ROOT/'.tools'))
-def check_site(directory=ROOT,evidence=None):
+def check_site(directory=ROOT,evidence=None,base_url=None):
     from playwright.sync_api import sync_playwright
     directory=pathlib.Path(directory).resolve(); evidence=pathlib.Path(evidence or ROOT/'evidence/browser').resolve(); evidence.mkdir(parents=True,exist_ok=True)
-    report={'started_at':timestamp(),'target':'local HTTP and file://','checks':[],'console_errors':[],'page_errors':[],'failed_requests':[],'screenshots':[]}
+    report={'started_at':timestamp(),'target':base_url or 'local HTTP and file://','checks':[],'console_errors':[],'page_errors':[],'failed_requests':[],'screenshots':[]}
     def record(name,fn):
         start=time.perf_counter()
         try:
@@ -15,9 +15,13 @@ def check_site(directory=ROOT,evidence=None):
         except Exception as e: report['checks'].append({'name':name,'passed':False,'error':str(e),'elapsed_ms':round((time.perf_counter()-start)*1000,3)})
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self,*args): pass
-    server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(directory)))
-    thread=threading.Thread(target=server.serve_forever,daemon=True); thread.start()
-    url=f'http://127.0.0.1:{server.server_port}/'
+    server=None; thread=None
+    if base_url:
+        url=base_url.rstrip('/')+'/'
+    else:
+        server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(directory)))
+        thread=threading.Thread(target=server.serve_forever,daemon=True); thread.start()
+        url=f'http://127.0.0.1:{server.server_port}/'
     def expect(condition,message):
         if not condition: raise AssertionError(message)
         return message
@@ -92,7 +96,7 @@ def check_site(directory=ROOT,evidence=None):
                 record(f'{label}: slide → Wiki citation',lambda:expect(pg.url.endswith('index.html#W03') and pg.locator('#W03').is_visible(),'W03 anchor opened'))
                 pg.goto(url+'workflow.html')
                 record(f'{label}: Graph and real events visible',lambda:expect(pg.locator('svg[role="img"]').count()==1 and pg.locator('tbody tr').count()>=8,'SVG graph and execution rows present'))
-                if label=='desktop':
+                if label=='desktop' and not base_url:
                     pg.goto((directory/'slides.html').as_uri()+'#slide-3',wait_until='load')
                     record('file:// no CDN, slide deep link',lambda:expect(pg.locator('#slide-3').is_visible(),'file slide 3 visible'))
                     pg.locator('#next').click()
@@ -102,7 +106,8 @@ def check_site(directory=ROOT,evidence=None):
     except Exception as e:
         report['checks'].append({'name':'browser infrastructure','passed':False,'error':str(e)})
     finally:
-        server.shutdown(); server.server_close(); thread.join(timeout=3)
+        if server:
+            server.shutdown(); server.server_close(); thread.join(timeout=3)
     for key in ('console_errors','page_errors','failed_requests'):
         report['checks'].append({'name':key,'passed':not report[key],'actual':report[key]})
     report['finished_at']=timestamp(); report['passed']=bool(report['checks']) and all(c['passed'] for c in report['checks'])
@@ -110,7 +115,7 @@ def check_site(directory=ROOT,evidence=None):
     return report
 if __name__=='__main__':
     sys.stdout.reconfigure(encoding='utf-8')
-    parser=argparse.ArgumentParser(); parser.add_argument('--directory',type=pathlib.Path,default=ROOT); parser.add_argument('--evidence',type=pathlib.Path); args=parser.parse_args()
-    r=check_site(args.directory,args.evidence)
+    parser=argparse.ArgumentParser(); parser.add_argument('--directory',type=pathlib.Path,default=ROOT); parser.add_argument('--evidence',type=pathlib.Path); parser.add_argument('--base-url'); args=parser.parse_args()
+    r=check_site(args.directory,args.evidence,args.base_url)
     print(json.dumps({'passed':r['passed'],'checks':len(r['checks']),'failed':[c for c in r['checks'] if not c['passed']]},ensure_ascii=False,indent=2))
     sys.exit(0 if r['passed'] else 1)

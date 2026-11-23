@@ -1,6 +1,6 @@
 # 真實驗證報告
 
-產生：2026-11-23T23:24:33.994260+08:00（Asia/Taipei）。本報告由既有 execution log、Chrome report 與 unittest 終端輸出彙整；不是硬編 pass。
+產生：2026-11-23T23:31:48.753205+08:00（Asia/Taipei）。本報告由既有 execution log、Chrome report 與 unittest 終端輸出彙整；不是硬編 pass。
 
 ## 實際執行命令
 
