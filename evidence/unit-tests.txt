@@ -1,0 +1,19 @@
+test_citation_failure_recovers_by_retrieval (test_workflow.WorkflowTests.test_citation_failure_recovers_by_retrieval) ... ok
+test_drifted_claim_rejected (test_workflow.WorkflowTests.test_drifted_claim_rejected) ... ok
+test_generated_local_links (test_workflow.WorkflowTests.test_generated_local_links) ... ok
+test_html_failure_rerenders_before_publish (test_workflow.WorkflowTests.test_html_failure_rerenders_before_publish) ... ok
+test_missing_citation_rejected (test_workflow.WorkflowTests.test_missing_citation_rejected) ... ok
+test_no_retrieval_match_rejected (test_workflow.WorkflowTests.test_no_retrieval_match_rejected) ... ok
+test_permanent_citation_failure_never_overwrites_release (test_workflow.WorkflowTests.test_permanent_citation_failure_never_overwrites_release) ... ok
+test_schema_and_sources (test_workflow.WorkflowTests.test_schema_and_sources) ... ok
+test_source_backlinks_validated (test_workflow.WorkflowTests.test_source_backlinks_validated) ... ok
+test_source_failure_recovers (test_workflow.WorkflowTests.test_source_failure_recovers) ... ok
+test_source_missing_summary_rejected (test_workflow.WorkflowTests.test_source_missing_summary_rejected) ... ok
+test_ten_slides_all_entries_and_claims (test_workflow.WorkflowTests.test_ten_slides_all_entries_and_claims) ... ok
+test_unknown_source_rejected (test_workflow.WorkflowTests.test_unknown_source_rejected) ... ok
+test_wiki_edit_flows_into_generated_claim (test_workflow.WorkflowTests.test_wiki_edit_flows_into_generated_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.799s
+
+OK

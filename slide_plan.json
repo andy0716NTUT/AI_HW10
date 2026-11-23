@@ -1,0 +1,12 @@
+[
+  {"title":"五篇文件，如何變成可信簡報？","label":"問題情境","queries":[{"query":"什麼是 AI Agent","fields":["example"]}]},
+  {"title":"Agent：依目標決定下一步","label":"定義","queries":[{"query":"什麼是 AI Agent","fields":["summary","details.1"]}]},
+  {"title":"流程由誰決定？","label":"LLM / Workflow / Agent","queries":[{"query":"什麼是 AI Agent","fields":["details.0"]},{"query":"Workflow、Agent 與 Graph","fields":["summary"]}]},
+  {"title":"四個元件，各司其職","label":"元件","queries":[{"query":"Agent 的四個基本元件","fields":["summary","example","details.4"]}]},
+  {"title":"模型提出呼叫，環境執行工具","label":"Tool Calling","queries":[{"query":"工具呼叫與回饋迴圈","fields":["details.2","example"]}]},
+  {"title":"讀完結果，再決定是否繼續","label":"Agent Loop","queries":[{"query":"工具呼叫與回饋迴圈","fields":["summary","details.3"]},{"query":"安全性、驗證與人類介入","fields":["details.2"]}]},
+  {"title":"Graph 讓分支與狀態可見","label":"Graph / State","queries":[{"query":"Workflow、Agent 與 Graph","fields":["summary","example"]}]},
+  {"title":"不通過時，必須能停下來","label":"安全與失敗","queries":[{"query":"安全性、驗證與人類介入","fields":["summary","details.1","details.2"]}]},
+  {"title":"案例：檢索、起草、檢查、重試","label":"設計模式與實作","queries":[{"query":"常見設計模式","fields":["summary","example"]},{"query":"Workflow、Agent 與 Graph","fields":["details.2"]}]},
+  {"title":"帶走一個判斷與一個問題","label":"回顧","queries":[{"query":"什麼是 AI Agent","fields":["summary"]},{"query":"安全性、驗證與人類介入","fields":["example"]}]}
+]

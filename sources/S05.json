@@ -1,0 +1,80 @@
+{
+  "id": "S05",
+  "publisher": "Google Cloud",
+  "title": "Choose Your Agentic AI Architecture Components",
+  "url": "https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components",
+  "topic": "記憶、檢索、工具",
+  "facts": [
+    "Agentic 架構可結合推理、工具、記憶與資料檢索。",
+    "短期狀態與長期知識可用不同機制維護。",
+    "選擇架構元件時應考慮安全、存取與應用需求。"
+  ],
+  "related": [
+    "W02",
+    "W03",
+    "W06"
+  ],
+  "summary": "Agentic 架構可結合推理、工具、記憶與資料檢索。；短期狀態與長期知識可用不同機制維護。；選擇架構元件時應考慮安全、存取與應用需求。",
+  "acquisition": {
+    "id": "S05",
+    "requested_url": "https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components",
+    "checked_at": "2026-11-23T22:57:59.041956+08:00",
+    "method": "Python urllib GET; title and headings extraction; Codex separately reviewed publisher web document (not a human review)",
+    "http_status": 200,
+    "final_url": "https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components",
+    "bytes": 303349,
+    "sha256": "ea7feb71f81e70c72f1f4b57ce4c446d1cffc824d54105488c39d9994b874a45",
+    "status": "retrieved",
+    "observed_title": "Choose your agentic AI architecture components  |  Cloud Architecture Center  |  Google Cloud Documentation",
+    "headings": [
+      "Choose your agentic AI architecture components  \n\n    \n    \n        \n    \n\n     \n      \n      Stay organized with collections\n     \n     \n      \n      Save and categorize content based on your preferences.",
+      "Agent architecture overview",
+      "Agent development frameworks",
+      "Frontend framework",
+      "Agent security and governance",
+      "Agent tools",
+      "Built-in tools",
+      "MCP",
+      "API management platform",
+      "Custom function tool",
+      "Tool bloat",
+      "Agent memory",
+      "Short-term memory",
+      "Long-term memory",
+      "Agent design patterns",
+      "AI models",
+      "Model runtime",
+      "Choose a model runtime",
+      "Agent runtime",
+      "Choose an agent runtime",
+      "Agent Runtime",
+      "Cloud Run",
+      "GKE",
+      "What's next",
+      "Contributors",
+      "Products and pricing",
+      "Support",
+      "Resources",
+      "Engage"
+    ]
+  },
+  "review_method": "本次 Codex 讀取發行方網頁核對；摘要以繁體中文改寫，不是逐字轉錄。Python GET 保留標題、章節與內容雜湊；不保存整篇原文。",
+  "points": [
+    {
+      "id": "S05-P1",
+      "claim": "Agentic 架構可結合推理、工具、記憶與資料檢索。",
+      "locator": "Agent architecture overview / Agent tools"
+    },
+    {
+      "id": "S05-P2",
+      "claim": "短期狀態與長期知識可用不同機制維護。",
+      "locator": "Agent memory / Short-term memory / Long-term memory"
+    },
+    {
+      "id": "S05-P3",
+      "claim": "選擇架構元件時應考慮安全、存取與應用需求。",
+      "locator": "Agent security and governance"
+    }
+  ],
+  "limitations": "取得的是本次頁面版本；未核驗歷史版本或每個外連。"
+}

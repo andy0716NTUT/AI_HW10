@@ -1,0 +1,286 @@
+{
+  "title": "AI Agent 運作原理 LLM Wiki",
+  "date": "2026-11-23",
+  "method": "本機結構化 Wiki；初稿經本次原始來源核查後補強。先記錄設計推演，再以 Python 檢索與規則組合產生簡報；執行器未呼叫 LLM API，未上傳第三方 Wiki 平台。",
+  "sources": [
+    {
+      "id": "S01",
+      "publisher": "OpenAI",
+      "title": "A Practical Guide to Building AI Agents",
+      "url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+      "topic": "Agent 構成與治理",
+      "facts": [
+        "Agent 的基本架構包含模型、工具與指令。",
+        "工具讓模型能取得資訊或執行外部動作。",
+        "守則、人工介入與評估是可靠部署的必要設計考量。"
+      ],
+      "related": [
+        "W01",
+        "W02",
+        "W03",
+        "W06"
+      ]
+    },
+    {
+      "id": "S02",
+      "publisher": "Anthropic",
+      "title": "Building Effective Agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "topic": "Workflow 與 Agent 區別",
+      "facts": [
+        "Workflow 通常由預定程式路徑控制 LLM 和工具。",
+        "Agent 由 LLM 動態決定流程與工具使用。",
+        "常見模式有 prompt chaining、routing、parallelization、orchestrator-workers、evaluator-optimizer。"
+      ],
+      "related": [
+        "W01",
+        "W04",
+        "W05"
+      ]
+    },
+    {
+      "id": "S03",
+      "publisher": "LangChain / LangGraph",
+      "title": "Workflows and Agents",
+      "url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+      "topic": "Graph 與迴圈",
+      "facts": [
+        "Graph 將流程表達成節點與邊，可包含條件分支與循環。",
+        "常見 agent 流程在 LLM 判斷需要工具時呼叫工具，再把結果回傳給模型。",
+        "明確的狀態與條件判斷方便觀察執行路徑。"
+      ],
+      "related": [
+        "W03",
+        "W04",
+        "W05"
+      ]
+    },
+    {
+      "id": "S04",
+      "publisher": "Microsoft Learn",
+      "title": "AI Agent Orchestration Patterns",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns/",
+      "topic": "編排模式",
+      "facts": [
+        "設計 Agent 系統時可依任務選擇單 Agent 或多 Agent 編排。",
+        "序列、平行與交接等編排模式各有適用情境與成本。",
+        "應先辨識業務需求，再決定是否需要複雜編排。"
+      ],
+      "related": [
+        "W04",
+        "W06"
+      ]
+    },
+    {
+      "id": "S05",
+      "publisher": "Google Cloud",
+      "title": "Choose Your Agentic AI Architecture Components",
+      "url": "https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components",
+      "topic": "記憶、檢索、工具",
+      "facts": [
+        "Agentic 架構可結合推理、工具、記憶與資料檢索。",
+        "短期狀態與長期知識可用不同機制維護。",
+        "選擇架構元件時應考慮安全、存取與應用需求。"
+      ],
+      "related": [
+        "W02",
+        "W03",
+        "W06"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "W01",
+      "title": "什麼是 AI Agent？",
+      "section": "核心概念",
+      "summary": "能根據目標決定下一步、選擇工具並利用結果持續完成任務的 AI 系統；並非所有 LLM 應用都需要 Agent。",
+      "details": [
+        "一般單次 LLM 呼叫可直接產生回答；聊天介面也可能接上工具，不能只看介面判斷是否為 Agent。",
+        "Agent 可以在執行過程中動態決定是否查詢資料、呼叫工具與重試。",
+        "Workflow 則更偏向由程式事先定義流程。"
+      ],
+      "sources": [
+        "S01",
+        "S02"
+      ],
+      "example": "教學情境：請幫我把五篇 Agent 文件整理成有來源的學習簡報；系統需要取得資料、整理並檢查。",
+      "source_points": {
+        "S01": [
+          "S01-P1",
+          "S01-P2",
+          "S01-P3"
+        ],
+        "S02": [
+          "S02-P1",
+          "S02-P2",
+          "S02-P3"
+        ]
+      }
+    },
+    {
+      "id": "W02",
+      "title": "Agent 的四個基本元件（教學整理）",
+      "section": "核心概念",
+      "summary": "模型負責推理；指令定義界線；工具執行動作；狀態／記憶保存需要的上下文。",
+      "details": [
+        "Model：判斷使用者需求和下一步。",
+        "Instructions：規定任務、格式、行為與限制。",
+        "Tools：搜尋、計算、讀取 API、寫入系統等。",
+        "State / Memory：保存當前執行資訊與必要的歷史知識。",
+        "此四項是本教學的整合框架：OpenAI 提出模型、工具、指令，另以 Google Cloud 的狀態／記憶補充。"
+      ],
+      "sources": [
+        "S01",
+        "S05"
+      ],
+      "example": "例：模型選擇查詢；指令要求附來源；工具讀取 Wiki；狀態記住已找到的條目。",
+      "source_points": {
+        "S01": [
+          "S01-P1",
+          "S01-P2",
+          "S01-P3"
+        ],
+        "S05": [
+          "S05-P1",
+          "S05-P2",
+          "S05-P3"
+        ]
+      }
+    },
+    {
+      "id": "W03",
+      "title": "工具呼叫與回饋迴圈",
+      "section": "運作方式",
+      "summary": "「推理 → 使用工具 → 取得結果 → 再推理」是常見的 agent loop。",
+      "details": [
+        "模型先判斷目前資訊是否足夠。",
+        "不足時選擇工具及其參數。",
+        "執行環境實際呼叫工具並回傳結果；模型不是憑空執行外部 API。",
+        "模型檢查結果，決定回答、再次查詢或交由人工處理。"
+      ],
+      "sources": [
+        "S03",
+        "S05",
+        "S01"
+      ],
+      "example": "工具呼叫示意：模型提出 search_wiki(query=\"工具迴圈\")；執行環境查詢 Wiki，將 W03 回傳給模型。這是教學示意，並非本程式呼叫 LLM 的紀錄。",
+      "source_points": {
+        "S03": [
+          "S03-P1",
+          "S03-P2",
+          "S03-P3"
+        ],
+        "S05": [
+          "S05-P1",
+          "S05-P2",
+          "S05-P3"
+        ],
+        "S01": [
+          "S01-P1",
+          "S01-P2",
+          "S01-P3"
+        ]
+      }
+    },
+    {
+      "id": "W04",
+      "title": "Workflow、Agent 與 Graph",
+      "section": "運作方式",
+      "summary": "Workflow 流程較固定；Agent 可動態選擇路徑；Graph 用節點、邊與條件把流程視覺化。",
+      "details": [
+        "節點 Node：取得、摘要、驗證、生成等處理步驟。",
+        "邊 Edge：資料或控制流向。",
+        "條件 Edge：若內容檢查不通過，就回到指定節點。",
+        "複雜流程不必然比簡單流程更好；應依需求選擇。"
+      ],
+      "sources": [
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "example": "狀態示例：query、retrieved_ids、draft、errors、retry_count。若引用檢查失敗，就帶著錯誤回到檢索節點。",
+      "source_points": {
+        "S02": [
+          "S02-P1",
+          "S02-P2",
+          "S02-P3"
+        ],
+        "S03": [
+          "S03-P1",
+          "S03-P2",
+          "S03-P3"
+        ],
+        "S04": [
+          "S04-P1",
+          "S04-P2",
+          "S04-P3"
+        ]
+      }
+    },
+    {
+      "id": "W05",
+      "title": "常見設計模式",
+      "section": "設計模式",
+      "summary": "串接、分類路由、平行、主控分工、評估優化等模式用於不同任務。",
+      "details": [
+        "Prompt chaining：上一階段輸出送入下一階段。",
+        "Routing：先分類，再走適合的子流程。",
+        "Parallelization：拆分可獨立完成的部分。",
+        "Evaluator–optimizer：產出後由評估器檢查，不合格則修正。"
+      ],
+      "sources": [
+        "S02",
+        "S03"
+      ],
+      "example": "例：先整理來源，再起草摘要，最後檢查引用；不合格就回到檢索與起草。",
+      "source_points": {
+        "S02": [
+          "S02-P1",
+          "S02-P2",
+          "S02-P3"
+        ],
+        "S03": [
+          "S03-P1",
+          "S03-P2",
+          "S03-P3"
+        ]
+      }
+    },
+    {
+      "id": "W06",
+      "title": "安全性、驗證與人類介入",
+      "section": "實務設計",
+      "summary": "Agent 需要可追蹤來源、限制工具權限、檢查輸出，風險較高的動作應經人工確認。",
+      "details": [
+        "檢查來源是否真的支持結論，避免模型編造內容。",
+        "限制工具能執行的操作及其權限。",
+        "設定最大重試次數，避免無限迴圈。",
+        "可把人工核准設成寫入、刪除等敏感操作的先決條件。"
+      ],
+      "sources": [
+        "S01",
+        "S04",
+        "S05"
+      ],
+      "example": "練習：若引用不存在，應先回檢索／引用檢查；重試到上限仍失敗，就停止輸出並回報。",
+      "source_points": {
+        "S01": [
+          "S01-P1",
+          "S01-P2",
+          "S01-P3"
+        ],
+        "S04": [
+          "S04-P1",
+          "S04-P2",
+          "S04-P3"
+        ],
+        "S05": [
+          "S05-P1",
+          "S05-P2",
+          "S05-P3"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+[
+  {
+    "id": "slide-1",
+    "title": "五篇文件，如何變成可信簡報？",
+    "label": "問題情境",
+    "claims": [
+      {
+        "text": "教學情境：請幫我把五篇 Agent 文件整理成有來源的學習簡報；系統需要取得資料、整理並檢查。",
+        "entry_id": "W01",
+        "field": "example",
+        "source_ids": [
+          "S01",
+          "S02"
+        ],
+        "kind": "教學示例"
+      }
+    ]
+  },
+  {
+    "id": "slide-2",
+    "title": "Agent：依目標決定下一步",
+    "label": "定義",
+    "claims": [
+      {
+        "text": "能根據目標決定下一步、選擇工具並利用結果持續完成任務的 AI 系統；並非所有 LLM 應用都需要 Agent。",
+        "entry_id": "W01",
+        "field": "summary",
+        "source_ids": [
+          "S01",
+          "S02"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "Agent 可以在執行過程中動態決定是否查詢資料、呼叫工具與重試。",
+        "entry_id": "W01",
+        "field": "details.1",
+        "source_ids": [
+          "S01",
+          "S02"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-3",
+    "title": "流程由誰決定？",
+    "label": "LLM / Workflow / Agent",
+    "claims": [
+      {
+        "text": "一般單次 LLM 呼叫可直接產生回答；聊天介面也可能接上工具，不能只看介面判斷是否為 Agent。",
+        "entry_id": "W01",
+        "field": "details.0",
+        "source_ids": [
+          "S01",
+          "S02"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "Workflow 流程較固定；Agent 可動態選擇路徑；Graph 用節點、邊與條件把流程視覺化。",
+        "entry_id": "W04",
+        "field": "summary",
+        "source_ids": [
+          "S02",
+          "S03",
+          "S04"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-4",
+    "title": "四個元件，各司其職",
+    "label": "元件",
+    "claims": [
+      {
+        "text": "模型負責推理；指令定義界線；工具執行動作；狀態／記憶保存需要的上下文。",
+        "entry_id": "W02",
+        "field": "summary",
+        "source_ids": [
+          "S01",
+          "S05"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "例：模型選擇查詢；指令要求附來源；工具讀取 Wiki；狀態記住已找到的條目。",
+        "entry_id": "W02",
+        "field": "example",
+        "source_ids": [
+          "S01",
+          "S05"
+        ],
+        "kind": "教學示例"
+      },
+      {
+        "text": "此四項是本教學的整合框架：OpenAI 提出模型、工具、指令，另以 Google Cloud 的狀態／記憶補充。",
+        "entry_id": "W02",
+        "field": "details.4",
+        "source_ids": [
+          "S01",
+          "S05"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-5",
+    "title": "模型提出呼叫，環境執行工具",
+    "label": "Tool Calling",
+    "claims": [
+      {
+        "text": "執行環境實際呼叫工具並回傳結果；模型不是憑空執行外部 API。",
+        "entry_id": "W03",
+        "field": "details.2",
+        "source_ids": [
+          "S03",
+          "S05",
+          "S01"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "工具呼叫示意：模型提出 search_wiki(query=\"工具迴圈\")；執行環境查詢 Wiki，將 W03 回傳給模型。這是教學示意，並非本程式呼叫 LLM 的紀錄。",
+        "entry_id": "W03",
+        "field": "example",
+        "source_ids": [
+          "S03",
+          "S05",
+          "S01"
+        ],
+        "kind": "教學示例"
+      }
+    ]
+  },
+  {
+    "id": "slide-6",
+    "title": "讀完結果，再決定是否繼續",
+    "label": "Agent Loop",
+    "claims": [
+      {
+        "text": "「推理 → 使用工具 → 取得結果 → 再推理」是常見的 agent loop。",
+        "entry_id": "W03",
+        "field": "summary",
+        "source_ids": [
+          "S03",
+          "S05",
+          "S01"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "模型檢查結果，決定回答、再次查詢或交由人工處理。",
+        "entry_id": "W03",
+        "field": "details.3",
+        "source_ids": [
+          "S03",
+          "S05",
+          "S01"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "設定最大重試次數，避免無限迴圈。",
+        "entry_id": "W06",
+        "field": "details.2",
+        "source_ids": [
+          "S01",
+          "S04",
+          "S05"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-7",
+    "title": "Graph 讓分支與狀態可見",
+    "label": "Graph / State",
+    "claims": [
+      {
+        "text": "Workflow 流程較固定；Agent 可動態選擇路徑；Graph 用節點、邊與條件把流程視覺化。",
+        "entry_id": "W04",
+        "field": "summary",
+        "source_ids": [
+          "S02",
+          "S03",
+          "S04"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "狀態示例：query、retrieved_ids、draft、errors、retry_count。若引用檢查失敗，就帶著錯誤回到檢索節點。",
+        "entry_id": "W04",
+        "field": "example",
+        "source_ids": [
+          "S02",
+          "S03",
+          "S04"
+        ],
+        "kind": "教學示例"
+      }
+    ]
+  },
+  {
+    "id": "slide-8",
+    "title": "不通過時，必須能停下來",
+    "label": "安全與失敗",
+    "claims": [
+      {
+        "text": "Agent 需要可追蹤來源、限制工具權限、檢查輸出，風險較高的動作應經人工確認。",
+        "entry_id": "W06",
+        "field": "summary",
+        "source_ids": [
+          "S01",
+          "S04",
+          "S05"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "限制工具能執行的操作及其權限。",
+        "entry_id": "W06",
+        "field": "details.1",
+        "source_ids": [
+          "S01",
+          "S04",
+          "S05"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "設定最大重試次數，避免無限迴圈。",
+        "entry_id": "W06",
+        "field": "details.2",
+        "source_ids": [
+          "S01",
+          "S04",
+          "S05"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-9",
+    "title": "案例：檢索、起草、檢查、重試",
+    "label": "設計模式與實作",
+    "claims": [
+      {
+        "text": "串接、分類路由、平行、主控分工、評估優化等模式用於不同任務。",
+        "entry_id": "W05",
+        "field": "summary",
+        "source_ids": [
+          "S02",
+          "S03"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "例：先整理來源，再起草摘要，最後檢查引用；不合格就回到檢索與起草。",
+        "entry_id": "W05",
+        "field": "example",
+        "source_ids": [
+          "S02",
+          "S03"
+        ],
+        "kind": "教學示例"
+      },
+      {
+        "text": "條件 Edge：若內容檢查不通過，就回到指定節點。",
+        "entry_id": "W04",
+        "field": "details.2",
+        "source_ids": [
+          "S02",
+          "S03",
+          "S04"
+        ],
+        "kind": "知識主張"
+      }
+    ]
+  },
+  {
+    "id": "slide-10",
+    "title": "帶走一個判斷與一個問題",
+    "label": "回顧",
+    "claims": [
+      {
+        "text": "能根據目標決定下一步、選擇工具並利用結果持續完成任務的 AI 系統；並非所有 LLM 應用都需要 Agent。",
+        "entry_id": "W01",
+        "field": "summary",
+        "source_ids": [
+          "S01",
+          "S02"
+        ],
+        "kind": "知識主張"
+      },
+      {
+        "text": "練習：若引用不存在，應先回檢索／引用檢查；重試到上限仍失敗，就停止輸出並回報。",
+        "entry_id": "W06",
+        "field": "example",
+        "source_ids": [
+          "S01",
+          "S04",
+          "S05"
+        ],
+        "kind": "教學示例"
+      }
+    ]
+  }
+]

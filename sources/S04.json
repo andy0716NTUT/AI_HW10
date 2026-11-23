@@ -1,0 +1,80 @@
+{
+  "id": "S04",
+  "publisher": "Microsoft Learn",
+  "title": "AI Agent Orchestration Patterns",
+  "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns/",
+  "topic": "編排模式",
+  "facts": [
+    "設計 Agent 系統時可依任務選擇單 Agent 或多 Agent 編排。",
+    "序列、平行與交接等編排模式各有適用情境與成本。",
+    "應先辨識業務需求，再決定是否需要複雜編排。"
+  ],
+  "related": [
+    "W04",
+    "W06"
+  ],
+  "summary": "設計 Agent 系統時可依任務選擇單 Agent 或多 Agent 編排。；序列、平行與交接等編排模式各有適用情境與成本。；應先辨識業務需求，再決定是否需要複雜編排。",
+  "acquisition": {
+    "id": "S04",
+    "requested_url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns/",
+    "checked_at": "2026-11-23T22:57:58.916946+08:00",
+    "method": "Python urllib GET; title and headings extraction; Codex separately reviewed publisher web document (not a human review)",
+    "http_status": 200,
+    "final_url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+    "bytes": 111270,
+    "sha256": "ac2e1d295e30a8971a141cfc49a13d2267d28d8985d1fc9e466283256c1f8c17",
+    "status": "retrieved",
+    "observed_title": "AI Agent Orchestration Patterns - Azure Architecture Center | Microsoft Learn",
+    "headings": [
+      "AI agent orchestration patterns",
+      "In this article",
+      "Start with the right level of complexity",
+      "Overview",
+      "Sequential orchestration",
+      "When to use sequential orchestration",
+      "When to avoid sequential orchestration",
+      "Sequential orchestration example",
+      "Concurrent orchestration",
+      "When to use concurrent orchestration",
+      "When to avoid concurrent orchestration",
+      "Concurrent orchestration example",
+      "Group chat orchestration",
+      "When to use group chat orchestration",
+      "When to avoid group chat orchestration",
+      "Maker-checker loops",
+      "Group chat orchestration example",
+      "Handoff orchestration",
+      "When to use handoff orchestration",
+      "When to avoid handoff orchestration",
+      "Agent handoff pattern example",
+      "Magentic orchestration",
+      "When to use magentic orchestration",
+      "When to avoid magentic orchestration",
+      "Magentic orchestration example",
+      "Choose a pattern",
+      "Implementation considerations",
+      "Single agent, multitool",
+      "Deterministic routing",
+      "Context and state management"
+    ]
+  },
+  "review_method": "本次 Codex 讀取發行方網頁核對；摘要以繁體中文改寫，不是逐字轉錄。Python GET 保留標題、章節與內容雜湊；不保存整篇原文。",
+  "points": [
+    {
+      "id": "S04-P1",
+      "claim": "設計 Agent 系統時可依任務選擇單 Agent 或多 Agent 編排。",
+      "locator": "Start with the right level of complexity"
+    },
+    {
+      "id": "S04-P2",
+      "claim": "序列、平行與交接等編排模式各有適用情境與成本。",
+      "locator": "Sequential orchestration / Concurrent orchestration / Handoff orchestration"
+    },
+    {
+      "id": "S04-P3",
+      "claim": "應先辨識業務需求，再決定是否需要複雜編排。",
+      "locator": "Start with the right level of complexity"
+    }
+  ],
+  "limitations": "網頁含授權提示，但本次 GET 與網頁讀取可取得正文；未登入帳戶。"
+}

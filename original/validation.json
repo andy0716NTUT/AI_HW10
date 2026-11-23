@@ -1,0 +1,12 @@
+{
+  "run_date": "2026-11-23",
+  "source_count": 5,
+  "wiki_entries": 6,
+  "slide_count": 10,
+  "all_wiki_entries_have_sources": true,
+  "all_wiki_source_ids_valid": true,
+  "all_slide_wiki_ids_valid": true,
+  "every_wiki_entry_used_on_slides": true,
+  "local_html_files_created": true,
+  "notes": "Static schema and referential-integrity checks only; not browser UI or autonomous agent execution."
+}

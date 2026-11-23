@@ -1,0 +1,373 @@
+{
+  "run_id": "2026-11-23T230629925193+0800",
+  "started_at": "2026-11-23T23:06:29.925212+08:00",
+  "mode": "deterministic retrieval + rule composition; no LLM API",
+  "fault": "citation-once",
+  "events": [
+    {
+      "node": "load_sources",
+      "started_at": "2026-11-23T23:06:29.943736+08:00",
+      "input": {
+        "wiki_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "loaded_sources": 5,
+        "input_files": [
+          "wiki.json",
+          "sources/S01–S05.json",
+          "slide_plan.json"
+        ]
+      },
+      "elapsed_ms": 23.279
+    },
+    {
+      "node": "ingest",
+      "started_at": "2026-11-23T23:06:29.968974+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "ingested": 5,
+        "mode": "local reviewed summaries; no new network fetch"
+      },
+      "elapsed_ms": 3.223
+    },
+    {
+      "node": "build_wiki",
+      "started_at": "2026-11-23T23:06:29.974151+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "sources": 5,
+        "entries": 6,
+        "schema": "valid",
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08"
+      },
+      "elapsed_ms": 0.19
+    },
+    {
+      "node": "retrieve",
+      "started_at": "2026-11-23T23:06:29.977016+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "queries": [
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "Agent 的四個基本元件",
+            "entry_id": "W02",
+            "score": 33
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "常見設計模式",
+            "entry_id": "W05",
+            "score": 22
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          }
+        ]
+      },
+      "elapsed_ms": 3.401
+    },
+    {
+      "node": "draft_slides",
+      "started_at": "2026-11-23T23:06:29.983910+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "draft_sha256": "397eebc319ce6aab11b289b77e17aabe5d3b7056ceef664adfdcc4776f1347cc"
+      },
+      "elapsed_ms": 0.327
+    },
+    {
+      "node": "validate_claims",
+      "started_at": "2026-11-23T23:06:29.985940+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "failed",
+      "error": "slide-1 缺引用或來源集合不符",
+      "retry_target": "retrieve",
+      "retry_number": 1,
+      "elapsed_ms": 0.13
+    },
+    {
+      "node": "retrieve",
+      "started_at": "2026-11-23T23:06:29.988594+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "queries": [
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "Agent 的四個基本元件",
+            "entry_id": "W02",
+            "score": 33
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "常見設計模式",
+            "entry_id": "W05",
+            "score": 22
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          }
+        ]
+      },
+      "elapsed_ms": 1.287
+    },
+    {
+      "node": "draft_slides",
+      "started_at": "2026-11-23T23:06:29.991860+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "draft_sha256": "4c8b0d474a613b1e9b04ad9e559963c9d8a5682b2ace94f40b2ac4a7a62497f5"
+      },
+      "elapsed_ms": 0.712
+    },
+    {
+      "node": "validate_claims",
+      "started_at": "2026-11-23T23:06:29.994607+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "claims": 23,
+        "referenced_entries": [
+          "W01",
+          "W02",
+          "W03",
+          "W04",
+          "W05",
+          "W06"
+        ],
+        "scope": "欄位逐字比對與引用一致性；不等於自動語義事實查核"
+      },
+      "elapsed_ms": 0.261
+    },
+    {
+      "node": "export",
+      "started_at": "2026-11-23T23:06:29.997574+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "destination": "temporary staging",
+        "files": [
+          "index.html",
+          "slides.html",
+          "workflow.html"
+        ]
+      },
+      "elapsed_ms": 87.349
+    },
+    {
+      "node": "validate_html",
+      "started_at": "2026-11-23T23:06:30.086890+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "html_files": 3,
+        "slides": 10,
+        "local_links": "valid",
+        "cdn_dependencies": 0,
+        "scope": "static HTML structure and local links; browser QA separately recorded"
+      },
+      "elapsed_ms": 89.846
+    },
+    {
+      "node": "publish",
+      "started_at": "2026-11-23T23:06:30.181558+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "destination": "local output (not public deployment)",
+        "files": [
+          "index.html",
+          "slides.html",
+          "workflow.html",
+          "slides_data.json",
+          "retrieval_log.json",
+          "validation.json"
+        ]
+      },
+      "elapsed_ms": 212.214
+    }
+  ],
+  "max_retries": 2,
+  "status": "passed",
+  "retry_counts": {
+    "validate_claims": 1
+  },
+  "finished_at": "2026-11-23T23:06:30.420416+08:00",
+  "checks": {
+    "claims": {
+      "slides": 10,
+      "claims": 23,
+      "referenced_entries": [
+        "W01",
+        "W02",
+        "W03",
+        "W04",
+        "W05",
+        "W06"
+      ],
+      "scope": "欄位逐字比對與引用一致性；不等於自動語義事實查核"
+    },
+    "html": {
+      "html_files": 3,
+      "slides": 10,
+      "local_links": "valid",
+      "cdn_dependencies": 0,
+      "scope": "static HTML structure and local links; browser QA separately recorded"
+    }
+  },
+  "published": true
+}

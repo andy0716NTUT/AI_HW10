@@ -1,0 +1,68 @@
+{
+  "id": "S01",
+  "publisher": "OpenAI",
+  "title": "A Practical Guide to Building AI Agents",
+  "url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+  "topic": "Agent 構成與治理",
+  "facts": [
+    "Agent 的基本架構包含模型、工具與指令。",
+    "工具讓模型能取得資訊或執行外部動作。",
+    "守則、人工介入與評估是可靠部署的必要設計考量。"
+  ],
+  "related": [
+    "W01",
+    "W02",
+    "W03",
+    "W06"
+  ],
+  "summary": "Agent 的基本架構包含模型、工具與指令。；工具讓模型能取得資訊或執行外部動作。；守則、人工介入與評估是可靠部署的必要設計考量。",
+  "acquisition": {
+    "id": "S01",
+    "requested_url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+    "checked_at": "2026-11-23T22:57:58.914976+08:00",
+    "method": "Python urllib GET; title and headings extraction; Codex separately reviewed publisher web document (not a human review)",
+    "http_status": 200,
+    "final_url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+    "bytes": 621809,
+    "sha256": "adcd5c94b3c5bf6d8f96500faca924efa488424ef49467fb077eff5a05dca59d",
+    "status": "retrieved",
+    "observed_title": "A Practical Guide to Building AI Agents | OpenAI",
+    "headings": [
+      "A practical guide to building agents",
+      "Introduction",
+      "What is an agent?",
+      "When should you build an agent?",
+      "Agent design foundations",
+      "Selecting your models",
+      "Defining tools",
+      "Configuring instructions",
+      "Orchestration",
+      "Guardrails",
+      "Types of guardrails",
+      "Building guardrails",
+      "Conclusion",
+      "Interested in bringing AI to your business?",
+      "Get OpenAI for Business updates",
+      "Keep reading"
+    ]
+  },
+  "review_method": "本次 Codex 讀取發行方網頁核對；摘要以繁體中文改寫，不是逐字轉錄。Python GET 保留標題、章節與內容雜湊；不保存整篇原文。",
+  "points": [
+    {
+      "id": "S01-P1",
+      "claim": "Agent 的基本架構包含模型、工具與指令。",
+      "locator": "Agent design foundations"
+    },
+    {
+      "id": "S01-P2",
+      "claim": "工具讓模型能取得資訊或執行外部動作。",
+      "locator": "Defining tools"
+    },
+    {
+      "id": "S01-P3",
+      "claim": "守則、人工介入與評估是可靠部署的必要設計考量。",
+      "locator": "Guardrails"
+    }
+  ],
+  "limitations": "取得的是本次頁面版本；未核驗歷史版本或每個外連。"
+}

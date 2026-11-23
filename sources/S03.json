@@ -1,0 +1,72 @@
+{
+  "id": "S03",
+  "publisher": "LangChain / LangGraph",
+  "title": "Workflows and Agents",
+  "url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+  "topic": "Graph 與迴圈",
+  "facts": [
+    "Graph 將流程表達成節點與邊，可包含條件分支與循環。",
+    "常見 agent 流程在 LLM 判斷需要工具時呼叫工具，再把結果回傳給模型。",
+    "明確的狀態與條件判斷方便觀察執行路徑。"
+  ],
+  "related": [
+    "W03",
+    "W04",
+    "W05"
+  ],
+  "summary": "Graph 將流程表達成節點與邊，可包含條件分支與循環。；常見 agent 流程在 LLM 判斷需要工具時呼叫工具，再把結果回傳給模型。；明確的狀態與條件判斷方便觀察執行路徑。",
+  "acquisition": {
+    "id": "S03",
+    "requested_url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+    "checked_at": "2026-11-23T22:57:58.916410+08:00",
+    "method": "Python urllib GET; title and headings extraction; Codex separately reviewed publisher web document (not a human review)",
+    "http_status": 200,
+    "final_url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+    "bytes": 1033024,
+    "sha256": "c0e53e278223bb71d5f8f4f98149a81609c89bbc67e7e4320a89dc58883c46a4",
+    "status": "retrieved",
+    "observed_title": "Workflows and agents - Docs by LangChain",
+    "headings": [
+      "Documentation Index",
+      "Get started",
+      "Capabilities",
+      "Patterns",
+      "Build with the Graph API",
+      "Deployment",
+      "Frontend",
+      "Advanced",
+      "On this page",
+      "Workflows and agents",
+      "Setup",
+      "LLMs and augmentations",
+      "Prompt chaining",
+      "Parallelization",
+      "Routing",
+      "Orchestrator-worker",
+      "Creating workers in LangGraph",
+      "Evaluator-optimizer",
+      "Agents",
+      "ToolNode",
+      "View example trace"
+    ]
+  },
+  "review_method": "本次 Codex 讀取發行方網頁核對；摘要以繁體中文改寫，不是逐字轉錄。Python GET 保留標題、章節與內容雜湊；不保存整篇原文。",
+  "points": [
+    {
+      "id": "S03-P1",
+      "claim": "Graph 將流程表達成節點與邊，可包含條件分支與循環。",
+      "locator": "Agents"
+    },
+    {
+      "id": "S03-P2",
+      "claim": "常見 agent 流程在 LLM 判斷需要工具時呼叫工具，再把結果回傳給模型。",
+      "locator": "Agents / ToolNode"
+    },
+    {
+      "id": "S03-P3",
+      "claim": "明確的狀態與條件判斷方便觀察執行路徑。",
+      "locator": "Routing / conditional edges"
+    }
+  ],
+  "limitations": "取得的是本次頁面版本；未核驗歷史版本或每個外連。"
+}

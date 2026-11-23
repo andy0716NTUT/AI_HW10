@@ -1,0 +1,883 @@
+{
+  "run_id": "2026-11-23T231153879896+0800",
+  "started_at": "2026-11-23T23:11:53.879911+08:00",
+  "mode": "deterministic retrieval + rule composition; no LLM API",
+  "fault": "citation-once",
+  "events": [
+    {
+      "node": "load_sources",
+      "started_at": "2026-11-23T23:11:53.884113+08:00",
+      "input": {
+        "wiki_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "loaded_sources": 5,
+        "input_files": [
+          "wiki.json",
+          "sources/S01–S05.json",
+          "slide_plan.json"
+        ],
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "sources_sha256": "4319c9d4e62f289dcfb57221f8e4d248c695433440a89ec6ffd1831b60c89e07",
+        "plan_sha256": "17784151971d2d897ac6983fdd103d34dc44516e6239c2582516581ca248e37b"
+      },
+      "elapsed_ms": 1.466
+    },
+    {
+      "node": "ingest",
+      "started_at": "2026-11-23T23:11:53.887102+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "ingested": 5,
+        "mode": "local reviewed summaries; no new network fetch"
+      },
+      "elapsed_ms": 1.483
+    },
+    {
+      "node": "build_wiki",
+      "started_at": "2026-11-23T23:11:53.890601+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "sources": 5,
+        "entries": 6,
+        "schema": "valid",
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08"
+      },
+      "elapsed_ms": 0.245
+    },
+    {
+      "node": "retrieve",
+      "started_at": "2026-11-23T23:11:53.892237+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "queries": [
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "Agent 的四個基本元件",
+            "entry_id": "W02",
+            "score": 33
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "常見設計模式",
+            "entry_id": "W05",
+            "score": 22
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          }
+        ]
+      },
+      "elapsed_ms": 2.725
+    },
+    {
+      "node": "draft_slides",
+      "started_at": "2026-11-23T23:11:53.896590+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 0
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "draft_sha256": "397eebc319ce6aab11b289b77e17aabe5d3b7056ceef664adfdcc4776f1347cc"
+      },
+      "elapsed_ms": 0.227
+    },
+    {
+      "node": "validate_claims",
+      "started_at": "2026-11-23T23:11:53.898977+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "failed",
+      "error": "slide-1 缺引用或來源集合不符",
+      "retry_target": "retrieve",
+      "retry_number": 1,
+      "elapsed_ms": 0.143
+    },
+    {
+      "node": "retrieve",
+      "started_at": "2026-11-23T23:11:53.901016+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "queries": [
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "Agent 的四個基本元件",
+            "entry_id": "W02",
+            "score": 33
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "工具呼叫與回饋迴圈",
+            "entry_id": "W03",
+            "score": 22
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          },
+          {
+            "query": "常見設計模式",
+            "entry_id": "W05",
+            "score": 22
+          },
+          {
+            "query": "Workflow、Agent 與 Graph",
+            "entry_id": "W04",
+            "score": 44
+          },
+          {
+            "query": "什麼是 AI Agent",
+            "entry_id": "W01",
+            "score": 44
+          },
+          {
+            "query": "安全性、驗證與人類介入",
+            "entry_id": "W06",
+            "score": 33
+          }
+        ]
+      },
+      "elapsed_ms": 1.361
+    },
+    {
+      "node": "draft_slides",
+      "started_at": "2026-11-23T23:11:53.903962+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "draft_sha256": "4c8b0d474a613b1e9b04ad9e559963c9d8a5682b2ace94f40b2ac4a7a62497f5"
+      },
+      "elapsed_ms": 0.246
+    },
+    {
+      "node": "validate_claims",
+      "started_at": "2026-11-23T23:11:53.905764+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "slides": 10,
+        "claims": 23,
+        "referenced_entries": [
+          "W01",
+          "W02",
+          "W03",
+          "W04",
+          "W05",
+          "W06"
+        ],
+        "scope": "欄位逐字比對與引用一致性；不等於自動語義事實查核"
+      },
+      "elapsed_ms": 0.144
+    },
+    {
+      "node": "export",
+      "started_at": "2026-11-23T23:11:53.907085+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "destination": "temporary staging",
+        "files": [
+          "index.html",
+          "slides.html",
+          "workflow.html"
+        ]
+      },
+      "elapsed_ms": 44.083
+    },
+    {
+      "node": "validate_html",
+      "started_at": "2026-11-23T23:11:53.952803+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "html_files": 3,
+        "slides": 10,
+        "local_links": "valid",
+        "cdn_dependencies": 0,
+        "scope": "static HTML structure and local links; browser QA separately recorded"
+      },
+      "elapsed_ms": 15701.495
+    },
+    {
+      "node": "publish",
+      "started_at": "2026-11-23T23:12:09.656062+08:00",
+      "input": {
+        "wiki_sha256": "6305b73eaacb945759414e04c3118b2eab12ac96db07174ec4aaa630475c6c08",
+        "slide_count": 10
+      },
+      "status": "passed",
+      "output": {
+        "destination": "local output (not public deployment)",
+        "files": [
+          "index.html",
+          "slides.html",
+          "workflow.html",
+          "slides_data.json",
+          "retrieval_log.json",
+          "validation.json"
+        ]
+      },
+      "elapsed_ms": 82.15
+    }
+  ],
+  "max_retries": 2,
+  "status": "passed",
+  "retry_counts": {
+    "validate_claims": 1
+  },
+  "finished_at": "2026-11-23T23:12:09.744416+08:00",
+  "checks": {
+    "claims": {
+      "slides": 10,
+      "claims": 23,
+      "referenced_entries": [
+        "W01",
+        "W02",
+        "W03",
+        "W04",
+        "W05",
+        "W06"
+      ],
+      "scope": "欄位逐字比對與引用一致性；不等於自動語義事實查核"
+    },
+    "html": {
+      "html_files": 3,
+      "slides": 10,
+      "local_links": "valid",
+      "cdn_dependencies": 0,
+      "scope": "static HTML structure and local links; browser QA separately recorded"
+    },
+    "browser": {
+      "started_at": "2026-11-23T23:11:54.329674+08:00",
+      "target": "local HTTP and file://",
+      "checks": [
+        {
+          "name": "desktop index.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.012
+        },
+        {
+          "name": "desktop index.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 6.152
+        },
+        {
+          "name": "desktop index.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 35.888
+        },
+        {
+          "name": "desktop slides.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.01
+        },
+        {
+          "name": "desktop slides.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 3.111
+        },
+        {
+          "name": "desktop slides.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 32.447
+        },
+        {
+          "name": "desktop workflow.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.008
+        },
+        {
+          "name": "desktop workflow.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 4.462
+        },
+        {
+          "name": "desktop workflow.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 44.861
+        },
+        {
+          "name": "desktop: Wiki search and reset",
+          "passed": true,
+          "actual": "search reset: 6 entries",
+          "elapsed_ms": 49.063
+        },
+        {
+          "name": "desktop: Wiki → slide backlink",
+          "passed": true,
+          "actual": "slides.html#slide-5",
+          "elapsed_ms": 72.569
+        },
+        {
+          "name": "desktop: buttons, arrows, Home/End, progress and Tab",
+          "passed": true,
+          "actual": "keyboard focus reaches controls",
+          "elapsed_ms": 143.537
+        },
+        {
+          "name": "desktop: URL/hash navigation",
+          "passed": true,
+          "actual": "deep link, hashchange, browser back passed",
+          "elapsed_ms": 47.38
+        },
+        {
+          "name": "desktop: slide 1 layout and citations",
+          "passed": true,
+          "actual": "1 claims; citations; controls below content",
+          "elapsed_ms": 28.728
+        },
+        {
+          "name": "desktop: slide 2 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 27.312
+        },
+        {
+          "name": "desktop: slide 3 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 30.209
+        },
+        {
+          "name": "desktop: slide 4 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 25.728
+        },
+        {
+          "name": "desktop: slide 5 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 44.719
+        },
+        {
+          "name": "desktop: slide 6 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 45.249
+        },
+        {
+          "name": "desktop: slide 7 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 27.582
+        },
+        {
+          "name": "desktop: slide 8 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 36.991
+        },
+        {
+          "name": "desktop: slide 9 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 32.274
+        },
+        {
+          "name": "desktop: slide 10 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 41.899
+        },
+        {
+          "name": "desktop: slide → Wiki citation",
+          "passed": true,
+          "actual": "W03 anchor opened",
+          "elapsed_ms": 23.79
+        },
+        {
+          "name": "desktop: Graph and real events visible",
+          "passed": true,
+          "actual": "SVG graph and execution rows present",
+          "elapsed_ms": 40.69
+        },
+        {
+          "name": "file:// no CDN, slide deep link",
+          "passed": true,
+          "actual": "file slide 3 visible",
+          "elapsed_ms": 19.963
+        },
+        {
+          "name": "file:// next button",
+          "passed": true,
+          "actual": "file slide 4 visible",
+          "elapsed_ms": 2.107
+        },
+        {
+          "name": "mobile index.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.007
+        },
+        {
+          "name": "mobile index.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 3.693
+        },
+        {
+          "name": "mobile index.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 35.677
+        },
+        {
+          "name": "mobile slides.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.006
+        },
+        {
+          "name": "mobile slides.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 3.358
+        },
+        {
+          "name": "mobile slides.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 44.059
+        },
+        {
+          "name": "mobile workflow.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.008
+        },
+        {
+          "name": "mobile workflow.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 5.162
+        },
+        {
+          "name": "mobile workflow.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 39.104
+        },
+        {
+          "name": "mobile: Wiki search and reset",
+          "passed": true,
+          "actual": "search reset: 6 entries",
+          "elapsed_ms": 85.334
+        },
+        {
+          "name": "mobile: Wiki → slide backlink",
+          "passed": true,
+          "actual": "slides.html#slide-5",
+          "elapsed_ms": 140.384
+        },
+        {
+          "name": "mobile: buttons, arrows, Home/End, progress and Tab",
+          "passed": true,
+          "actual": "keyboard focus reaches controls",
+          "elapsed_ms": 177.42
+        },
+        {
+          "name": "mobile: URL/hash navigation",
+          "passed": true,
+          "actual": "deep link, hashchange, browser back passed",
+          "elapsed_ms": 59.658
+        },
+        {
+          "name": "mobile: slide 1 layout and citations",
+          "passed": true,
+          "actual": "1 claims; citations; controls below content",
+          "elapsed_ms": 44.657
+        },
+        {
+          "name": "mobile: slide 2 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 49.098
+        },
+        {
+          "name": "mobile: slide 3 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 49.774
+        },
+        {
+          "name": "mobile: slide 4 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 41.619
+        },
+        {
+          "name": "mobile: slide 5 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 26.97
+        },
+        {
+          "name": "mobile: slide 6 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 41.179
+        },
+        {
+          "name": "mobile: slide 7 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 36.644
+        },
+        {
+          "name": "mobile: slide 8 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 34.669
+        },
+        {
+          "name": "mobile: slide 9 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 31.412
+        },
+        {
+          "name": "mobile: slide 10 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 44.67
+        },
+        {
+          "name": "mobile: slide → Wiki citation",
+          "passed": true,
+          "actual": "W03 anchor opened",
+          "elapsed_ms": 24.069
+        },
+        {
+          "name": "mobile: Graph and real events visible",
+          "passed": true,
+          "actual": "SVG graph and execution rows present",
+          "elapsed_ms": 30.937
+        },
+        {
+          "name": "narrow index.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.007
+        },
+        {
+          "name": "narrow index.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 3.899
+        },
+        {
+          "name": "narrow index.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 40.3
+        },
+        {
+          "name": "narrow slides.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.006
+        },
+        {
+          "name": "narrow slides.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 2.978
+        },
+        {
+          "name": "narrow slides.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 29.576
+        },
+        {
+          "name": "narrow workflow.html: HTTP 200",
+          "passed": true,
+          "actual": "HTTP 200",
+          "elapsed_ms": 0.007
+        },
+        {
+          "name": "narrow workflow.html: no horizontal page overflow",
+          "passed": true,
+          "actual": "page fits viewport",
+          "elapsed_ms": 4.188
+        },
+        {
+          "name": "narrow workflow.html: main heading readable",
+          "passed": true,
+          "actual": "one visible h1, >=28px",
+          "elapsed_ms": 36.499
+        },
+        {
+          "name": "narrow: Wiki search and reset",
+          "passed": true,
+          "actual": "search reset: 6 entries",
+          "elapsed_ms": 47.507
+        },
+        {
+          "name": "narrow: Wiki → slide backlink",
+          "passed": true,
+          "actual": "slides.html#slide-5",
+          "elapsed_ms": 66.902
+        },
+        {
+          "name": "narrow: buttons, arrows, Home/End, progress and Tab",
+          "passed": true,
+          "actual": "keyboard focus reaches controls",
+          "elapsed_ms": 146.051
+        },
+        {
+          "name": "narrow: URL/hash navigation",
+          "passed": true,
+          "actual": "deep link, hashchange, browser back passed",
+          "elapsed_ms": 45.531
+        },
+        {
+          "name": "narrow: slide 1 layout and citations",
+          "passed": true,
+          "actual": "1 claims; citations; controls below content",
+          "elapsed_ms": 30.25
+        },
+        {
+          "name": "narrow: slide 2 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 36.937
+        },
+        {
+          "name": "narrow: slide 3 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 31.251
+        },
+        {
+          "name": "narrow: slide 4 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 31.104
+        },
+        {
+          "name": "narrow: slide 5 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 34.155
+        },
+        {
+          "name": "narrow: slide 6 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 35.076
+        },
+        {
+          "name": "narrow: slide 7 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 51.269
+        },
+        {
+          "name": "narrow: slide 8 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 32.031
+        },
+        {
+          "name": "narrow: slide 9 layout and citations",
+          "passed": true,
+          "actual": "3 claims; citations; controls below content",
+          "elapsed_ms": 33.612
+        },
+        {
+          "name": "narrow: slide 10 layout and citations",
+          "passed": true,
+          "actual": "2 claims; citations; controls below content",
+          "elapsed_ms": 27.4
+        },
+        {
+          "name": "narrow: slide → Wiki citation",
+          "passed": true,
+          "actual": "W03 anchor opened",
+          "elapsed_ms": 15.897
+        },
+        {
+          "name": "narrow: Graph and real events visible",
+          "passed": true,
+          "actual": "SVG graph and execution rows present",
+          "elapsed_ms": 19.181
+        },
+        {
+          "name": "console_errors",
+          "passed": true,
+          "actual": []
+        },
+        {
+          "name": "page_errors",
+          "passed": true,
+          "actual": []
+        },
+        {
+          "name": "failed_requests",
+          "passed": true,
+          "actual": []
+        }
+      ],
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": [],
+      "screenshots": [
+        "desktop-index.png",
+        "desktop-slides.png",
+        "desktop-workflow.png",
+        "desktop-slide-4.png",
+        "desktop-slide-5.png",
+        "desktop-slide-7.png",
+        "desktop-slide-9.png",
+        "desktop-slide-10.png",
+        "mobile-index.png",
+        "mobile-slides.png",
+        "mobile-workflow.png",
+        "mobile-slide-4.png",
+        "mobile-slide-5.png",
+        "mobile-slide-7.png",
+        "mobile-slide-9.png",
+        "mobile-slide-10.png"
+      ],
+      "browser": "Chrome 157.0.8103.79",
+      "finished_at": "2026-11-23T23:12:09.653131+08:00",
+      "passed": true
+    }
+  },
+  "published": true
+}

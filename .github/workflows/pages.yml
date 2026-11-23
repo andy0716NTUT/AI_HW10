@@ -1,0 +1,42 @@
+name: Deploy verified Wiki to Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Rebuild from reviewed local sources
+        run: python workflow.py --fault citation-once --out "${{ runner.temp }}/wiki-ci"
+      - name: Run workflow tests
+        env:
+          TEST_EVIDENCE_DIR: ${{ runner.temp }}/wiki-test-evidence
+        run: python -m unittest discover -s tests -v
+      - name: Package static site
+        run: python package_site.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

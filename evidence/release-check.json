@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-11-23T23:24:34.264250+08:00",
+  "schema": {
+    "sources": 5,
+    "entries": 6,
+    "schema": "valid"
+  },
+  "ingest": {
+    "ingested": 5,
+    "mode": "local reviewed summaries; no new network fetch"
+  },
+  "claims": {
+    "slides": 10,
+    "claims": 23,
+    "referenced_entries": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06"
+    ],
+    "scope": "欄位逐字比對與引用一致性；不等於自動語義事實查核"
+  },
+  "html": {
+    "html_files": 3,
+    "slides": 10,
+    "local_links": "valid",
+    "cdn_dependencies": 0,
+    "scope": "static HTML structure and local links; browser QA separately recorded"
+  },
+  "submission_fields": "user-confirmed and filled",
+  "credential_scan": {
+    "text_files_checked": 65,
+    "matches": [],
+    "scope": "common API token/private key patterns, not exhaustive"
+  },
+  "passed": true
+}

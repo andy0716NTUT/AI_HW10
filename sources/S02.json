@@ -1,0 +1,81 @@
+{
+  "id": "S02",
+  "publisher": "Anthropic",
+  "title": "Building Effective Agents",
+  "url": "https://www.anthropic.com/research/building-effective-agents",
+  "topic": "Workflow 與 Agent 區別",
+  "facts": [
+    "Workflow 通常由預定程式路徑控制 LLM 和工具。",
+    "Agent 由 LLM 動態決定流程與工具使用。",
+    "常見模式有 prompt chaining、routing、parallelization、orchestrator-workers、evaluator-optimizer。"
+  ],
+  "related": [
+    "W01",
+    "W04",
+    "W05"
+  ],
+  "summary": "Workflow 通常由預定程式路徑控制 LLM 和工具。；Agent 由 LLM 動態決定流程與工具使用。；常見模式有 prompt chaining、routing、parallelization、orchestrator-workers、evaluator-optimizer。",
+  "acquisition": {
+    "id": "S02",
+    "requested_url": "https://www.anthropic.com/research/building-effective-agents",
+    "checked_at": "2026-11-23T22:57:58.915934+08:00",
+    "method": "Python urllib GET; title and headings extraction; Codex separately reviewed publisher web document (not a human review)",
+    "http_status": 200,
+    "final_url": "https://www.anthropic.com/research/building-effective-agents",
+    "bytes": 225506,
+    "sha256": "2a77cf3a0b413483d946424d7cd7f234ecf4d90b8880db0e939e224fce843f58",
+    "status": "retrieved",
+    "observed_title": "Building effective AI agents \\ Anthropic",
+    "headings": [
+      "01    What are agents?",
+      "Building effective agents",
+      "What are agents?",
+      "When (and when not) to use agents",
+      "When and how to use frameworks",
+      "Building blocks, workflows, and agents",
+      "Building block: The augmented LLM",
+      "Workflow: Prompt chaining",
+      "Workflow: Routing",
+      "Workflow: Parallelization",
+      "Workflow: Orchestrator-workers",
+      "Workflow: Evaluator-optimizer",
+      "Agents",
+      "Combining and customizing these patterns",
+      "Summary",
+      "Appendix 1: Agents in practice",
+      "A. Customer support",
+      "B. Coding agents",
+      "Appendix 2: Prompt engineering your tools",
+      "Authors & acknowledgements",
+      "Acknowledgements",
+      "Research",
+      "Policy",
+      "Commitments",
+      "Company",
+      "Products",
+      "Models",
+      "Solutions",
+      "Help and security",
+      "Terms and policies"
+    ]
+  },
+  "review_method": "本次 Codex 讀取發行方網頁核對；摘要以繁體中文改寫，不是逐字轉錄。Python GET 保留標題、章節與內容雜湊；不保存整篇原文。",
+  "points": [
+    {
+      "id": "S02-P1",
+      "claim": "Workflow 通常由預定程式路徑控制 LLM 和工具。",
+      "locator": "What are agents?"
+    },
+    {
+      "id": "S02-P2",
+      "claim": "Agent 由 LLM 動態決定流程與工具使用。",
+      "locator": "What are agents?"
+    },
+    {
+      "id": "S02-P3",
+      "claim": "常見模式有 prompt chaining、routing、parallelization、orchestrator-workers、evaluator-optimizer。",
+      "locator": "Building blocks, workflows, and agents"
+    }
+  ],
+  "limitations": "取得的是本次頁面版本；未核驗歷史版本或每個外連。"
+}
